@@ -38,7 +38,9 @@ Below are some fo the projects I have worked on!
 
 ### Transit Accesibility Analysis
 **Regression Analysis:** [Cross Sectional Analysis](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Regression%20Project/Census-Project.pdf) 
+
 **Census Tract Visualizations:** [Ridership Visualization](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Regression%20Project/Census-Data-Visuals.pdf)
+
 **Research Paper:**
 
 **Goal:** Create a ridership forecast model to predict weekly ridership based on historical data and seasonal effects.
