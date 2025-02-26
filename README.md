@@ -23,7 +23,7 @@ Below are some fo the projects I have worked on!
 ## Projects
 
 ### Forecasting Ridership
-**Linear Regression Code:** [Ridership Analysis](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Ridership%20Forecasting/Forecasting-Riderhip-lm.R) 
+**Linear Regression Code:** [Ridership Analysis](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Ridership%20Forecasting/Forecasting%20Ridership%20lm.R) 
 
 **Visualizations:** [Ridership Visualization](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Ridership%20Forecasting/Visualizations.pdf)
 
