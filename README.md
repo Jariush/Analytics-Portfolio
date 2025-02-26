@@ -42,7 +42,7 @@ Below are some of the projects I have worked on!
 
 **Census Tract Visualizations:** [Ridership Visualization](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Regression%20Project/Census-Data-Visuals.pdf)
 
-**On-Time Performance Analysis:** [OTP Regression Code and Visualizations]()
+**On-Time Performance Analysis:** [OTP Regression Code and Visualizations](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Regression%20Project/OTP-Analysis.pdf)
 
 **Research Paper:** [Comprehensive Research Paper](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Regression%20Project/Hamid_LeeTran%20Case%20Study.pdf)
 
