@@ -12,6 +12,7 @@ Below are some fo the projects I have worked on!
 * [Portfolio Projects](https://github.com/Jariush/Analytics-Portfoilio/blob/main/README.md#projects)
   * R
     * [Forecasting Ridership](https://github.com/Jariush/Analytics-Portfoilio/blob/main/README.md#forecasting-ridership)
+    * [LeeTran Bus Stop Accesibility Analysis](https://github.com/Jariush/Analytics-Portfoilio/blob/main/README.md#LeeTran-transit-accessibility-analysis)
   * Python
     * [Factors That Lead to Credit Approval]()
   * SQL
@@ -26,6 +27,19 @@ Below are some fo the projects I have worked on!
 **Linear Regression Code:** [Ridership Analysis](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Ridership%20Forecasting/Forecasting%20Ridership%20lm.R) 
 
 **Visualizations:** [Ridership Visualization](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Ridership%20Forecasting/Visualizations.pdf)
+
+**Goal:** Create a ridership forecast model to predict weekly ridership based on historical data and seasonal effects.
+
+**Skills:** data visualization, linear regression, visualizations
+
+**Technology/Libraries:** ggplot, lm, lubridate, dplyr, tidyr
+
+**Results:** The R analysis provides a predicted forecast for the selected weeks.
+
+### LeeTran Transit Accesibility Analysis
+**Regression Analysis:** [Cross Sectional Analysis](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Regression%20Project/Census-Project.pdf) 
+**Census Tract Visualizations:** [Ridership Visualization](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Regression%20Project/Census-Data-Visuals.pdf)
+**Research Paper:**
 
 **Goal:** Create a ridership forecast model to predict weekly ridership based on historical data and seasonal effects.
 
