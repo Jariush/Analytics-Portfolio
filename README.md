@@ -16,7 +16,7 @@ Below are some of the projects I have worked on!
   * JavaScript
     * [Ridership Information System](https://github.com/Jariush/Analytics-Portfoilio/blob/main/README.md#ridership-information-system)
   * Python
-    * [Census Tract Geolocator](https://github.com/Jariush/Analytics-Portfoilio/blob/main/README.md#calculating-proximity-to-bus-stop)
+    * [Calculating Distance Script](https://github.com/Jariush/Analytics-Portfoilio/blob/main/README.md#calculating-proximity-to-bus-stop)
   * Power BI
 * Certifications
 
