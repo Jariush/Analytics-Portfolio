@@ -31,9 +31,9 @@ Below are some fo the projects I have worked on!
 
 **Skills:** data visualization, linear regression, visualizations
 
-**Technology/Libraries:** ggplot, lm, 
+**Technology/Libraries:** ggplot, lm, lubridate, dplyr, tidyr
 
-**Results:** Using the Python language, we can conclude that if an individual fails to fulfill their obligations to repay a previous debt, then they will unlikely be approved for another loan or a credit application. This is the biggest factor for an approval, other variables include credit score and if they are employed. Using sklearn we can also see that for the best accuracy score, the decison tree should be at a depth of two. 
+**Results:** Using R we can see a predicted forecast for the following quarter, this can be compared
 
 ### Brick by Brick: A Data-Driven Exploration of LEGO Set Trends and Insights
 **Exploratory Data Analysis:** [Lego EDA]()
