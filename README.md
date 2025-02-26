@@ -41,7 +41,7 @@ Below are some fo the projects I have worked on!
 
 **Census Tract Visualizations:** [Ridership Visualization](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Regression%20Project/Census-Data-Visuals.pdf)
 
-**Research Paper:**
+**Research Paper:**[Full Research Paper](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Regression%20Project/Hamid_LeeTran%20Case%20Study.pdf)
 
 **Goal:** Create a ridership forecast model to predict weekly ridership based on historical data and seasonal effects.
 
