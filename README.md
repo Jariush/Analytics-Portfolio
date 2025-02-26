@@ -38,11 +38,13 @@ Below are some of the projects I have worked on!
 **Results:** The R analysis provides a predicted forecast for the selected weeks.
 
 ### Transit Accessibility Analysis
-**Regression Analysis:** [Cross Sectional Analysis](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Regression%20Project/Census-Project.pdf) 
+**Census Tract Analysis Overview:** [Census Tract Regression Code](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Regression%20Project/Census-Project.pdf) 
 
 **Census Tract Visualizations:** [Ridership Visualization](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Regression%20Project/Census-Data-Visuals.pdf)
 
-**Research Paper:** [Full Research Paper](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Regression%20Project/Hamid_LeeTran%20Case%20Study.pdf)
+**On-Time Performance Analysis:** [OTP Regression Code and Visualizations]()
+
+**Research Paper:** [Comprehensive Research Paper](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Regression%20Project/Hamid_LeeTran%20Case%20Study.pdf)
 
 **Goal:** Examine the impact of transit accessibility on local communities, with a focus on underprivileged areas. This analysis covers LeeTran's route performance and the socio-economic factors, especially median household income, influencing bus stop placement. The objective is to evaluate daily on-time performance (OTP) and propose data-driven solutions for enhancing public transit services, particularly for low-income communities.
 
