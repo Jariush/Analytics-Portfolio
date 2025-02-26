@@ -14,7 +14,7 @@ Below are some fo the projects I have worked on!
     * [Forecasting Ridership](https://github.com/Jariush/Analytics-Portfoilio/blob/main/README.md#forecasting-ridership)
     * [LeeTran Bus Stop Accesibility Analysis](https://github.com/Jariush/Analytics-Portfoilio/blob/main/README.md#Transit-Accesibility-Analysis)
   * Python
-    * [Factors That Lead to Credit Approval]()
+    * 
   * SQL
   * Excel/Google Sheets
   * Tableau
@@ -43,11 +43,20 @@ Below are some fo the projects I have worked on!
 
 **Research Paper:**[Full Research Paper](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Regression%20Project/Hamid_LeeTran%20Case%20Study.pdf)
 
-**Goal:** Create a ridership forecast model to predict weekly ridership based on historical data and seasonal effects.
+**Goal:** Access to transit has a significant impact on local communities as highlighted in the existing literature.
+Public transit is particularly crucial in serving underprivileged communities, where on-time
+performance (OTP) plays a vital role in ensuring reliable service and access. This analysis serves two
+main purposes. First, it provides a daily overview of LeeTran’s route performance and offers suggestions
+for improvement. Second, it examines how socio-economic factors, such as median household
+income, are key determinants in deciding where to place bus stops. Using data analysis and regression
+modeling, I examine dailyOTP at LeeTran and perform a cross-sectional analysis to explore how
+socio-economic factors, particularly median household income, influence transit access and steer bus
+stop placement toward low-income communities. Finally, I will propose potential solutions and policy
+recommendations for LeeTran to enhance its operations moving forward.
 
-**Skills:** data visualization, linear regression, visualizations
+**Skills:** data visualization, linear regression, cross-sectional analysis, R, transit analysis
 
-**Technology/Libraries:** ggplot, lm, lubridate, dplyr, tidyr
+**Technology/Libraries:** R(ggplot, lm, lubridate, dplyr, tidyr, grid, psych. etc)
 
 **Results:** The R analysis provides a predicted forecast for the selected weeks.
 
