@@ -7,7 +7,7 @@ I also have experience as a data analyst intern at LeeTran. I leverage my skills
 
 Below are some of the projects I have worked on!
 
----
+
 
 ## Table of Contents
 * [About](https://github.com/Jariush/Analytics-Portfoilio/blob/main/README.md#About-me)
@@ -25,7 +25,7 @@ Below are some of the projects I have worked on!
 
 
 ## Projects
----
+
 
 ### Forecasting Ridership
 **Linear Regression Code:** [Ridership Analysis](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Ridership%20Forecasting/Forecasting%20Ridership%20lm.R) 
