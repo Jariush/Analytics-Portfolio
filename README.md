@@ -13,12 +13,10 @@ Below are some of the projects I have worked on!
   * R
     * [Forecasting Ridership](https://github.com/Jariush/Analytics-Portfoilio/blob/main/README.md#forecasting-ridership)
     * [LeeTran Bus Stop Accessibility Analysis](https://github.com/Jariush/Analytics-Portfoilio/blob/main/README.md#Transit-Accessibility-Analysis)
-  * Python
-  * SQL
-  * Excel/Google Sheets
   * JavaScript
     * [Ridership Information System](https://github.com/Jariush/Analytics-Portfoilio/blob/main/README.md#ridership-information-system)
-  * Tableau
+  * Python
+    * [Census Tract Geolocator]
   * Power BI
 * Certifications
 
