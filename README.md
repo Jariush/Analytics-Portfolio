@@ -63,6 +63,7 @@ recommendations for LeeTran to enhance its operations moving forward.
 
 ### Ridership Information Systen
 **Javascript Code:** [Javascript Code for Google Appscript]()
+
 **Dashboard:** [Sample Dashboard]()
 
 **Goal:** Engineered a rider tracking system for the seasonal beach route with a web interface, automating rider count logging, eliminating errors and reducing data entry time, connected it to a live dashboard for real-time analysis.
