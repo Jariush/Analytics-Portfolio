@@ -1,18 +1,18 @@
 # Jarius Hamid Analytics Portfolio
 ## About Me!
 
-Hello! My name is Jarius and I am a Master’s in Analytics graduate from Florida Gulf Coast University, with a bachelors degree in Economics. I have a deep passion for research and data analysis. Throughout my academic and professional journey, I have applied statistical techniques, modeling, data processing, and visualization to projects such as assessing diabetes risk factors and exploring the correlation between poverty and crime. 
+Hello! My name is Jarius and I am a Master’s in Analytics graduate from Florida Gulf Coast University, with a bachelor’s degree in Economics. I have a deep passion for research and data analysis. Throughout my academic and professional journey, I have applied statistical techniques, modeling, data processing, and visualization to projects such as assessing diabetes risk factors and exploring the correlation between poverty and crime. 
 
 I also have experience as a data analyst intern at LeeTran. I leverage my skills in data analysis, predictive modeling, and geospatial analysis to optimize transit operations, improve reporting workflows, and support key transportation planning initiatives aimed at enhancing efficiency and performance.
 
-Below are some fo the projects I have worked on!
+Below are some of the projects I have worked on!
 
 ## Table of Contents
 * [About](https://github.com/Jariush/Analytics-Portfoilio/blob/main/README.md#About-me)
 * [Portfolio Projects](https://github.com/Jariush/Analytics-Portfoilio/blob/main/README.md#projects)
   * R
     * [Forecasting Ridership](https://github.com/Jariush/Analytics-Portfoilio/blob/main/README.md#forecasting-ridership)
-    * [LeeTran Bus Stop Accesibility Analysis](https://github.com/Jariush/Analytics-Portfoilio/blob/main/README.md#Transit-Accesibility-Analysis)
+    * [LeeTran Bus Stop Accessibility Analysis](https://github.com/Jariush/Analytics-Portfoilio/blob/main/README.md#Transit-Accessibility-Analysis)
   * Python
   * SQL
   * Excel/Google Sheets
@@ -37,7 +37,7 @@ Below are some fo the projects I have worked on!
 
 **Results:** The R analysis provides a predicted forecast for the selected weeks.
 
-### Transit Accesibility Analysis
+### Transit Accessibility Analysis
 **Regression Analysis:** [Cross Sectional Analysis](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Regression%20Project/Census-Project.pdf) 
 
 **Census Tract Visualizations:** [Ridership Visualization](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Regression%20Project/Census-Data-Visuals.pdf)
@@ -52,7 +52,7 @@ Below are some fo the projects I have worked on!
 
 **Results:** The analysis includes a detailed review of LeeTran’s daily OTP and identifies socio-economic factors that influence transit accessibility. Proposals are made for improving service in underserved communities.
 
-### Ridership Information Systen
+### Ridership Information System
 **Javascript Code:** [Javascript Code for Google AppScript](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Ridership%20Information%20System/add%20rider.gs)
 
 **Dashboard:** [Sample Dashboard](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Ridership%20Information%20System/Ridership%20Dashboard.png)
