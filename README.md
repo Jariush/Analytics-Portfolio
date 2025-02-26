@@ -23,9 +23,9 @@ Below are some fo the projects I have worked on!
 ## Projects
 
 ### Forecasting Ridership
-**Forecasting Code:** [Ridership Analysis]() 
+**Linear Regression Code:** [Ridership Analysis](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Ridership%20Forecasting/Forecasting-Riderhip-lm.R) 
 
-**Visualizations:** [Ridership Visualization]()
+**Visualizations:** [Ridership Visualization](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Ridership%20Forecasting/Visualizations.pdf)
 
 **Goal:** Why do banks approve credit for some individuals and not others? What factors lead to a better chance for an approval? We want to see which variables effect a bank to approve a loan or credit line. The dataset includes features such as gender, age, whether there was a prior default, and if they are employed. 
 
