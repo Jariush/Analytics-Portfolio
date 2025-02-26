@@ -25,7 +25,7 @@ Below are some fo the projects I have worked on!
 ### Forecasting Ridership
 **Forecasting Code:** [Ridership Analysis]() 
 
-**Exploratory Data Analysis:** [Ridership Visualization]()
+**Visualizations:** [Ridership Visualization]()
 
 **Goal:** Why do banks approve credit for some individuals and not others? What factors lead to a better chance for an approval? We want to see which variables effect a bank to approve a loan or credit line. The dataset includes features such as gender, age, whether there was a prior default, and if they are employed. 
 
