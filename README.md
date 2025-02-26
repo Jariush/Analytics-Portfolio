@@ -16,6 +16,8 @@ Below are some fo the projects I have worked on!
   * Python
   * SQL
   * Excel/Google Sheets
+  * JavaScript
+    * [Ridership Information System](https://github.com/Jariush/Analytics-Portfoilio/blob/main/README.md#ridership-information-system)
   * Tableau
   * Power BI
 * Certifications
@@ -58,4 +60,16 @@ recommendations for LeeTran to enhance its operations moving forward.
 **Technology/Libraries:** R(ggplot, lm, lubridate, dplyr, tidyr, grid, psych. etc)
 
 **Results:** The R analysis provides a predicted forecast for the selected weeks.
+
+### Ridership Information Systen
+**Javascript Code:** [Javascript Code for Google Appscript]()
+**Dashboard:** [Sample Dashboard]()
+
+**Goal:** Engineered a rider tracking system for the seasonal beach route with a web interface, automating rider count logging, eliminating errors and reducing data entry time, connected it to a live dashboard for real-time analysis.
+
+**Skills:** information systems, dashboard creation, KPI tracking, process improvement
+
+**Technology/Libraries:** LookerStudio, GoogleAppScript, Javascript, HTML 
+
+**Results:** Able to collect and analyze ridership data for routes without automated rider counts/fareboxes.
 
