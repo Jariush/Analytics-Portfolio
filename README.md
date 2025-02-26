@@ -12,7 +12,7 @@ Below are some fo the projects I have worked on!
 * [Portfolio Projects](https://github.com/Jariush/Analytics-Portfoilio/blob/main/README.md#projects)
   * R
     * [Forecasting Ridership](https://github.com/Jariush/Analytics-Portfoilio/blob/main/README.md#forecasting-ridership)
-    * [LeeTran Bus Stop Accesibility Analysis](https://github.com/Jariush/Analytics-Portfoilio/blob/main/README.md#transit-accessibility-analysis)
+    * [LeeTran Bus Stop Accesibility Analysis](https://github.com/Jariush/Analytics-Portfoilio/blob/main/README.md#Transit-Accesibility-Analysis)
   * Python
     * [Factors That Lead to Credit Approval]()
   * SQL
