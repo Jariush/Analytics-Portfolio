@@ -14,7 +14,6 @@ Below are some fo the projects I have worked on!
     * [Forecasting Ridership](https://github.com/Jariush/Analytics-Portfoilio/blob/main/README.md#forecasting-ridership)
     * [LeeTran Bus Stop Accesibility Analysis](https://github.com/Jariush/Analytics-Portfoilio/blob/main/README.md#Transit-Accesibility-Analysis)
   * Python
-    * 
   * SQL
   * Excel/Google Sheets
   * Tableau
@@ -41,7 +40,7 @@ Below are some fo the projects I have worked on!
 
 **Census Tract Visualizations:** [Ridership Visualization](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Regression%20Project/Census-Data-Visuals.pdf)
 
-**Research Paper:**[Full Research Paper](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Regression%20Project/Hamid_LeeTran%20Case%20Study.pdf)
+**Research Paper:** [Full Research Paper](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Regression%20Project/Hamid_LeeTran%20Case%20Study.pdf)
 
 **Goal:** Access to transit has a significant impact on local communities as highlighted in the existing literature.
 Public transit is particularly crucial in serving underprivileged communities, where on-time
