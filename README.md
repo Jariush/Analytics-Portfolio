@@ -16,7 +16,7 @@ Below are some of the projects I have worked on!
   * JavaScript
     * [Ridership Information System](https://github.com/Jariush/Analytics-Portfoilio/blob/main/README.md#ridership-information-system)
   * Python
-    * [Census Tract Geolocator]
+    * [Census Tract Geolocator](https://github.com/Jariush/Analytics-Portfoilio/blob/main/README.md#calculating-proximity-to-bus-stop)
   * Power BI
 * Certifications
 
@@ -64,4 +64,18 @@ Below are some of the projects I have worked on!
 **Technology/Libraries:** LookerStudio, GoogleAppScript, Javascript, HTML 
 
 **Results:** The system successfully automates rider count data collection for routes that lack fareboxes or automated count systems, providing real-time insights into ridership trends.
+
+### Calculating Proximity to Bus Stop 
+**Juptyr Notebook Code:** [Proximity to Bus Stop Code](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Distance%20From%20Stop%20Script/Distance-From-Stop.ipynb)
+
+
+**Goal:** Calculate the distance to the nearest bus stop within each census tract of Lee County, this data was used for my LeeTran Accessibility Project.
+
+**Skills:** scripting, data manipulation
+
+**Technology/Libraries:** python (pandas, geopy) 
+
+**Results:** The script calculates and updates a dataset with the distance to the nearest bus stop for each census tract.
+
+
 
