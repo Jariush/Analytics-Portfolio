@@ -73,6 +73,7 @@ Below are some of the projects I have worked on!
 **Technology/Libraries:** LookerStudio, GoogleAppScript, Javascript, HTML 
 
 **Results:** The system successfully automates rider count data collection for routes that lack fareboxes or automated count systems, providing real-time insights into ridership trends.
+
 ---
 
 ### Calculating Proximity to Bus Stop 
