@@ -44,33 +44,24 @@ Below are some fo the projects I have worked on!
 
 **Research Paper:** [Full Research Paper](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Regression%20Project/Hamid_LeeTran%20Case%20Study.pdf)
 
-**Goal:** Access to transit has a significant impact on local communities as highlighted in the existing literature.
-Public transit is particularly crucial in serving underprivileged communities, where on-time
-performance (OTP) plays a vital role in ensuring reliable service and access. This analysis serves two
-main purposes. First, it provides a daily overview of LeeTran’s route performance and offers suggestions
-for improvement. Second, it examines how socio-economic factors, such as median household
-income, are key determinants in deciding where to place bus stops. Using data analysis and regression
-modeling, I examine dailyOTP at LeeTran and perform a cross-sectional analysis to explore how
-socio-economic factors, particularly median household income, influence transit access and steer bus
-stop placement toward low-income communities. Finally, I will propose potential solutions and policy
-recommendations for LeeTran to enhance its operations moving forward.
+**Goal:** Examine the impact of transit accessibility on local communities, with a focus on underprivileged areas. This analysis covers LeeTran's route performance and the socio-economic factors, especially median household income, influencing bus stop placement. The objective is to evaluate daily on-time performance (OTP) and propose data-driven solutions for enhancing public transit services, particularly for low-income communities.
 
 **Skills:** data visualization, linear regression, cross-sectional analysis, R, transit analysis
 
 **Technology/Libraries:** R(ggplot, lm, lubridate, dplyr, tidyr, grid, psych. etc)
 
-**Results:** The R analysis provides a predicted forecast for the selected weeks.
+**Results:** The analysis includes a detailed review of LeeTran’s daily OTP and identifies socio-economic factors that influence transit accessibility. Proposals are made for improving service in underserved communities.
 
 ### Ridership Information Systen
-**Javascript Code:** [Javascript Code for Google Appscript]()
+**Javascript Code:** [Javascript Code for Google AppScript](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Ridership%20Information%20System/add%20rider.gs)
 
-**Dashboard:** [Sample Dashboard]()
+**Dashboard:** [Sample Dashboard](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Ridership%20Information%20System/Ridership%20Dashboard.png)
 
-**Goal:** Engineered a rider tracking system for the seasonal beach route with a web interface, automating rider count logging, eliminating errors and reducing data entry time, connected it to a live dashboard for real-time analysis.
+**Goal:** Engineer a rider tracking system for the seasonal beach route, with a web interface that automates rider count logging in a google sheet. This eliminates manual data entry errors, reduces time spent on data input, and connects the system to a live dashboard for real-time monitoring.
 
 **Skills:** information systems, dashboard creation, KPI tracking, process improvement
 
 **Technology/Libraries:** LookerStudio, GoogleAppScript, Javascript, HTML 
 
-**Results:** Able to collect and analyze ridership data for routes without automated rider counts/fareboxes.
+**Results:** The system successfully automates rider count data collection for routes that lack fareboxes or automated count systems, providing real-time insights into ridership trends.
 
