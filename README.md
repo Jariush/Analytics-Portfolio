@@ -58,6 +58,7 @@ Below are some of the projects I have worked on!
 **Technology/Libraries:** R(ggplot, lm, lubridate, dplyr, tidyr, grid, psych. etc)
 
 **Results:** The analysis includes a detailed review of LeeTran’s daily OTP and identifies socio-economic factors that influence transit accessibility. Proposals are made for improving service in underserved communities.
+
 ---
 
 ### Ridership Information System
