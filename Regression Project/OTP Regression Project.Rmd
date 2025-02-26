@@ -1,0 +1,371 @@
+---
+title: "Regression Project"
+author: "Jarius Hamid"
+date: "2024-08-26"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Loading all of The Libraries and Data
+
+```{r librarys}
+
+
+library(ggplot2)
+library(dplyr)
+library(lubridate)
+library(tidyverse)
+library(e1071)
+library(xtable)
+library(psych)
+library(caret)
+library(fixest)
+library(stringr)
+library(forcats)
+
+transit_data <- read.csv("C:/Users/hamidja/OneDrive - Lee County BoCC/Intern Project/r_reg.csv")
+rain_and_temp <- read.csv("C:/Users/hamidja/OneDrive - Lee County BoCC/Intern Project/rain_and_temp_data.csv")
+miles_and_stops <- read.csv("C:/Users/hamidja/OneDrive - Lee County BoCC/Intern Project/route_milesandstops.csv")
+```
+
+# Data Manipulation
+
+```{r pressure, echo=FALSE}
+# Rename the variable
+names(transit_data)[names(transit_data) == "route.."] <- "route"
+
+# Creating Categorical Variables
+
+transit_data <- transit_data %>%
+  mutate(avg_rain_inch = round(avg_rain_inch, digits = 2))
+
+#renaming variables to be all lowercase and selecting appropriate variables for join
+rain_and_temp <- rain_and_temp %>%
+  rename_with(tolower) %>%
+  select(date, tmax)
+
+#joining rain_andtemp data into regression data
+transit_data <- transit_data %>%
+  left_join(rain_and_temp,by = "date")
+
+###finnish join with miles 
+transit_data <- transit_data %>%
+  left_join(miles_and_stops, by = "route") %>%
+  # Normalize date formats and extract month
+  mutate(
+    # Parse the date using lubridate's mdy function, which handles multiple formats
+    date = mdy(date), 
+    # Extract month from the normalized date
+    month = month(date),
+    # Create the `season` variable
+    season = ifelse(month >= 11 | month <= 4, 1, 0)
+  )
+
+#create categorical variables
+
+
+######################################################
+#transit_data$route <- as.factor(transit_data$route)
+#transit_data$day <- as.factor(transit_data$day)
+
+#Omit missing values
+transit_data_clean<- na.omit(transit_data)
+
+```
+
+# Principle Components Analysis
+```{r pressure, echo=FALSE}
+
+
+
+#select Variables Miles,s tops, and stops apart for PCA
+pca_selected_vars <- transit_data_clean[, c("miles_roundtrip", "stops")]
+ 
+# Standardize the selected variables
+#pca_scaled_data <- scale(pca_selected_vars)
+
+# Perform PCA
+#pca_result <- prcomp(pca_scaled_data, center = TRUE, scale. = TRUE)
+
+
+
+##################
+# Standardize the data
+pca_data_scaled <- scale(pca_selected_vars)
+
+# Compute PCA on selected variables
+pcs <- prcomp(pca_data_scaled, center = TRUE, scale. = TRUE)
+
+# Summary of PCA
+summary(pcs)
+
+# Variance explained by each component
+var_explained <- summary(pcs)$importance[2,]
+
+# Plot variance explained
+ggplot(data.frame(PC = 1:length(var_explained), Variance = var_explained), aes(x = PC, y = Variance)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Variance Explained by Principal Components", x = "Principal Component", y = "Variance Explained")
+
+# PCA Loadings
+pcs$rotation
+
+# Cumulative proportion of variance to see which PC to keep
+cumulative_var <- cumsum(var_explained)
+ggplot(data.frame(PC = 1:length(cumulative_var), CumulativeVariance = cumulative_var), aes(x = PC, y = CumulativeVariance)) +
+  geom_line() +
+  labs(title = "Cumulative Variance Explained by Principal Components", x = "Principal Component", y = "Cumulative Variance")
+
+
+# Looking at PCA Scores
+scores <- pcs$x
+head(scores, 5)
+
+scores_df <- data.frame(scores)
+
+ggplot(scores_df, aes(x = PC1, y = PC2)) +
+  geom_point() +
+  labs(title = "Scatter Plot of PC1 vs. PC2", x = "Principal Component 1", y = "Principal Component 2") +
+  theme_minimal()
+
+# Final touches
+transit_data_clean <- transit_data_clean %>%
+  # Add the first principal component
+  mutate(PC1 = pcs$x[, 1]) 
+
+```
+# Summary Statistics with Latex Ouput
+
+```{r pressure, echo=FALSE}
+# Compute summary statistics
+table <- describe(transit_data_clean)
+
+# Convert the summary statistics to a data frame
+table_df <- as.data.frame(table)
+
+# Remove unnecessary columns and rename them
+table_df <- table_df[, c("mean", "sd", "median", "range", "skew", "kurtosis")]
+names(table_df) <- c("Mean", "SD", "Median", "Range", "Skew", "Kurtosis")
+
+# Add a column for variable names
+table_df$Variable <- rownames(table_df)
+
+# Reorder columns
+table_df <- table_df[, c("Variable", "Mean", "SD", "Median", "Range", "Skew", "Kurtosis")]
+
+# Generate LaTeX code
+latex_table <- xtable(table_df, caption = "Summary Statistics", label = "tab:summary_statistics")
+
+# Print LaTeX code
+print(latex_table, type = "latex", include.rownames = FALSE, booktabs = TRUE)
+
+
+
+
+```
+OTP BAR CHARTS
+```{r OTP BY DAY AND ROUTE, echo=FALSE}
+# Assuming your data is stored in a dataframe called 'transit_data_clean'
+
+# Calculate OTP (On-Time Percentage) by day
+transit_data_clean <- transit_data_clean %>%
+  mutate(otp = (on_time / sum_processed) * 100)  # OTP as percentage
+
+# Aggregate OTP by day
+otp_by_day <- transit_data_clean %>%
+  group_by(day) %>%
+  summarize(mean_otp = mean(otp, na.rm = TRUE))
+
+# Plot OTP by Day
+ggplot(otp_by_day, aes(x = day, y = mean_otp)) +
+  geom_bar(stat = "identity", fill = "skyblue", color = "black") +
+  labs(title = "On-Time Performance by Day",
+       x = "Day of the Week",
+       y = "Average OTP (%)") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+# Aggregate OTP by route
+otp_by_route <- transit_data_clean %>%
+  mutate(otp = (on_time / sum_processed) * 100) %>%
+  group_by(route) %>%
+  summarize(mean_otp = mean(otp, na.rm = TRUE)) %>%
+  ungroup() %>%
+  # Convert 'route' to a factor (if not already) and reorder by mean OTP in descending order
+  mutate(route = factor(route)) %>%
+  mutate(route = fct_reorder(route, mean_otp, .desc = TRUE))
+
+# Plot OTP by Route (ordered by descending OTP)
+ggplot(otp_by_route, aes(x = route, y = mean_otp)) +
+  geom_bar(stat = "identity", fill = "lightgreen", color = "black") +
+  labs(title = "On-Time Performance by Route",
+       x = "Route Number",
+       y = "Average OTP (%)") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+```
+
+
+# Scatter Plot Materix TESTING
+```{r pressure, echo=FALSE}
+# Box plot for season vs on_time
+library(ggplot2)
+ggplot(transit_data_clean, aes(x = as.factor(season), y = on_time)) +
+  geom_boxplot() +
+  labs(title = "Boxplot of On-Time Performance by Season",
+       x = "Season",
+       y = "On-Time Performance") +
+  theme_minimal()
+
+# Load necessary libraries
+library(corrplot)
+library(dplyr)
+
+# Subset the data to include the continuous variables and on_time
+continuous_vars_with_otp <- transit_data_clean %>%
+  select(avg_rain_inch, tmax, upt, accident_count, PC1, on_time)
+
+# Compute the correlation matrix
+cor_matrix_with_otp <- cor(continuous_vars_with_otp, use = "complete.obs")
+
+# Plot the correlation matrix
+corrplot(cor_matrix_with_otp, method = "circle", type = "upper", 
+         tl.col = "black", tl.srt = 45)
+
+
+```
+
+# Explanatory Regression
+```{r pressure, echo=FALSE}
+model_fe <- feols(on_time ~ avg_rain_inch^2 + tmax + upt + accident_count + season | route, data = transit_data_clean)
+summary(model_fe)
+
+model_lm <- lm(on_time ~ avg_rain_inch^2 + tmax + upt + accident_count + route + season + PC1, data = transit_data_clean)
+summary(model_lm)
+
+```
+
+# UPT FORECAST TEST
+```{r pressure, echo=FALSE}
+# Load necessary libraries
+# Load necessary libraries
+library(forecast)
+library(zoo)
+library(ggplot2)
+library(lubridate)
+library(dplyr)
+
+# Prepare your data
+transit_data_clean$date <- as.Date(transit_data_clean$date, format="%Y-%m-%d")
+transit_data_clean$upt <- as.numeric(transit_data_clean$upt)
+transit_data_clean$Quarter <- as.yearqtr(transit_data_clean$date)
+transit_data_clean$monthqtr <- as.yearmon(transit_data_clean$date)
+transit_data_clean <- transit_data_clean %>%
+  filter(date != as.Date("2023-12-31"))
+
+# Aggregate data by Quarter using sum
+quarterly_data <- aggregate(upt ~ Quarter, data=transit_data_clean, FUN=sum)
+daily_data <- aggregate(upt ~ date, data=transit_data_clean, FUN=sum)
+monthly_data <- aggregate(upt ~ monthqtr, data=transit_data_clean, FUN=sum)
+
+
+# create time series object using ts()
+# ts() takes three arguments: start, end, and freq.
+# with monthly data, the frequency of periods per cycle is 12 (per year).
+# arguments start and end are (cycle [=year] number, seasonal period [=month] number) pairs.
+# here start is Jan 1991: start = c(1991, 1); end is Mar 2004: end = c(2004, 3).
+ridership.ts <- ts(quarterly_data$upt, start = c(2022, 4), frequency = 4)
+
+# Plot the series using autoplot
+autoplot(ridership.ts) +
+  xlab("Time") +
+  ylab("Total Upt") +
+  ggtitle("Quarterly Ridership Time Series") +
+  scale_y_continuous(limits=c(0, max(quarterly_data$upt) * 1.1))
+
+daily_ts <- ts(daily_data$upt, start = c(2022, as.numeric(format(as.Date("2022-10-01"), "%j"))), frequency = 365)
+
+# Plot the time series using autoplot
+autoplot(daily_ts) +
+  xlab("Time") +
+  ylab("Total Upt") +
+  ggtitle("Daily Ridership Time Series") +
+  scale_y_continuous(limits=c(0, max(daily_data$upt) * 1.1)) +
+  geom_smooth(method="lm", formula=y~poly(x, 2)) +
+  theme_minimal()
+
+monthly_ts <- ts(monthly_data$upt, start = c(2022, 10), frequency = 12)
+
+# Plot the time series using autoplot
+autoplot(monthly_ts) +
+  xlab("Time") +
+  ylab("Total Upt") +
+  ggtitle("Monthly Ridership Time Series") +
+  scale_y_continuous(limits = c(0, max(monthly_data$upt) * 1.1)) +
+  geom_smooth(method = "lm", formula = y ~ poly(x, 2)) +
+  theme_minimal() +
+  scale_x_yearmon(
+    format = "%b-%Y",
+    breaks = seq(from = as.yearmon("2022-10"), to = as.yearmon("2024-06"), by = "1 month")
+  )
+```
+
+# Predictive UPT Model
+
+```{r pressure, echo=FALSE}
+# Set a seed for reproducibility
+set.seed(123)
+
+# Create a partition for training and testing (80% training, 20% testing)
+train_index <- createDataPartition(transit_data_clean$on_time, p = 0.8, list = FALSE)
+train_data <- transit_data_clean[train_index, ]
+test_data <- transit_data_clean[-train_index, ]
+
+# Further partition the training data into training and validation sets (80% training, 20% validation)
+val_index <- createDataPartition(train_data$on_time, p = 0.8, list = FALSE)
+training_set <- train_data[val_index, ]
+validation_set <- train_data[-val_index, ]
+
+# Fit a regression model
+# model <- lm(on_time ~ route + day + avg_rain_inch + tmax + accident_count, data = training_set)
+
+# Fit the fixed effects model with route-specific effects
+model_fe <- feols(on_time ~ avg_rain_inch + tmax + upt + accident_count + PC1 | route, data = training_set)
+
+# Summary of the model
+model_fe
+
+
+# Validate using validation_set
+predictions_val <- predict(model_fe, newdata = validation_set)
+# Evaluate the performance (e.g., RMSE, MAE)
+```
+
+# Data Prediction 
+
+```{r pressure, echo=FALSE}
+# New data for prediction
+new_data <- data.frame(
+  route = factor(c("140"), levels = levels(train_data$route)), 
+  day = factor(c("Monday"), levels = levels(train_data$day)), 
+  avg_rain_inch = c(100),
+  accident_count = c(50)
+)
+
+# Predict OTP for new data
+future_predictions <- predict(model, newdata = new_data)
+
+# Clamp predictions to the range 0-100
+future_predictions <- pmin(pmax(future_predictions, 0), 100)
+
+# Print future predictions
+print(future_predictions)
+```
+```
+
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
