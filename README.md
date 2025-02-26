@@ -7,6 +7,8 @@ I also have experience as a data analyst intern at LeeTran. I leverage my skills
 
 Below are some of the projects I have worked on!
 
+---
+
 ## Table of Contents
 * [About](https://github.com/Jariush/Analytics-Portfoilio/blob/main/README.md#About-me)
 * [Portfolio Projects](https://github.com/Jariush/Analytics-Portfoilio/blob/main/README.md#projects)
@@ -20,7 +22,10 @@ Below are some of the projects I have worked on!
   * Power BI
 * Certifications
 
+---
+
 ## Projects
+---
 
 ### Forecasting Ridership
 **Linear Regression Code:** [Ridership Analysis](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Ridership%20Forecasting/Forecasting%20Ridership%20lm.R) 
@@ -34,6 +39,8 @@ Below are some of the projects I have worked on!
 **Technology/Libraries:** ggplot, lm, lubridate, dplyr, tidyr
 
 **Results:** The R analysis provides a predicted forecast for the selected weeks.
+
+---
 
 ### Transit Accessibility Analysis
 **Census Tract Analysis Overview:** [Census Tract Regression Code](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Regression%20Project/Census-Project.pdf) 
@@ -51,6 +58,7 @@ Below are some of the projects I have worked on!
 **Technology/Libraries:** R(ggplot, lm, lubridate, dplyr, tidyr, grid, psych. etc)
 
 **Results:** The analysis includes a detailed review of LeeTran’s daily OTP and identifies socio-economic factors that influence transit accessibility. Proposals are made for improving service in underserved communities.
+---
 
 ### Ridership Information System
 **Javascript Code:** [Javascript Code for Google AppScript](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Ridership%20Information%20System/add%20rider.gs)
@@ -64,10 +72,10 @@ Below are some of the projects I have worked on!
 **Technology/Libraries:** LookerStudio, GoogleAppScript, Javascript, HTML 
 
 **Results:** The system successfully automates rider count data collection for routes that lack fareboxes or automated count systems, providing real-time insights into ridership trends.
+---
 
 ### Calculating Proximity to Bus Stop 
 **Juptyr Notebook Code:** [Proximity to Bus Stop Code](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Distance%20From%20Stop%20Script/Distance-From-Stop.ipynb)
-
 
 **Goal:** Calculate the distance to the nearest bus stop within each census tract of Lee County, this data was used for my LeeTran Accessibility Project.
 
