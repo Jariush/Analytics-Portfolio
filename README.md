@@ -8,12 +8,12 @@ I also have experience as a data analyst intern at LeeTran. I leverage my skills
 Below are some fo the projects I have worked on!
 
 ## Table of Contents
-* [About](https://github.com/Jariush/Analytics-Portfoilio/blob/main/README.md)
-* [Portfolio Projects]()
+* [About](https://github.com/Jariush/Analytics-Portfoilio/blob/main/README.md#About-me)
+* [Portfolio Projects](https://github.com/Jariush/Analytics-Portfoilio/blob/main/README.md#projects)
+  * R
+    * [Forecasting Ridership](https://github.com/Jariush/Analytics-Portfoilio/blob/main/README.md#forecasting-ridership)
   * Python
     * [Factors That Lead to Credit Approval]()
-  * R
-    * [Brick by Brick: A Data-Driven Exploration of LEGO Set Trends and Insights]()
   * SQL
   * Excel/Google Sheets
   * Tableau
@@ -22,10 +22,10 @@ Below are some fo the projects I have worked on!
 
 ## Projects
 
-### Factors That Lead to Credit Approval
-**Machine Learning:** [Credit Risk Analysis]() 
+### Forecasting Ridership
+**Forecasting Code:** [Ridership Analysis]() 
 
-**Exploratory Data Analysis:** [Credit Risk EDA]()
+**Exploratory Data Analysis:** [Ridership Visualization]()
 
 **Goal:** Why do banks approve credit for some individuals and not others? What factors lead to a better chance for an approval? We want to see which variables effect a bank to approve a loan or credit line. The dataset includes features such as gender, age, whether there was a prior default, and if they are employed. 
 
