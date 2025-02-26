@@ -8,7 +8,7 @@ I also have experience as a data analyst intern at LeeTran. I leverage my skills
 Below are some fo the projects I have worked on!
 
 ## Table of Contents
-* [About](https://github.com/Jariush/Analytics-Portfoilio/edit/main/README.md)
+* [About](https://github.com/Jariush/Analytics-Portfoilio/blob/main/README.md)
 * [Portfolio Projects]()
   * Python
     * [Factors That Lead to Credit Approval]()
