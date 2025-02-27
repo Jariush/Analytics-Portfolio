@@ -44,7 +44,7 @@ Below are some of the projects I have worked on!
 
 ### Transit Accessibility Analysis
 
-#### *Census Tract Part 1*
+#### *Part 1: Census Tract*
 
 **Census Tract Analysis:** [Census Tract Regression Code](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Regression%20Project/Census-Project.md) 
 
@@ -52,7 +52,7 @@ Below are some of the projects I have worked on!
 
 **Census Tract Socio-Economic Visuals:** [Exploratory Visualizations](https://github.com/Jariush/Analytics-Portfoilio/tree/main/Census-Tract%20Visuals)
 
-#### *OTP Part 2*
+#### *Part 2: On-TIme Performance*
 
 **On-Time Performance Analysis:** [OTP Regression Code](https://github.com/Jariush/Analytics-Portfoilio/blob/main/Regression%20Project/OTP-Analysis.md)
 
