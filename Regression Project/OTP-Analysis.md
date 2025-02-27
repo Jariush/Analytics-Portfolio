@@ -87,7 +87,71 @@ miles_and_stops <- read.csv("route_milesandstops.csv")
 
 # Data Manipulation
 
+``` r
+# Rename the variable
+names(transit_data)[names(transit_data) == "route.."] <- "route"
+
+# Creating Categorical Variables
+
+transit_data <- transit_data %>%
+  mutate(avg_rain_inch = round(avg_rain_inch, digits = 2))
+
+#renaming variables to be all lowercase and selecting appropriate variables for join
+rain_and_temp <- rain_and_temp %>%
+  rename_with(tolower) %>%
+  select(date, tmax)
+
+#joining rain_andtemp data into regression data
+transit_data <- transit_data %>%
+  left_join(rain_and_temp,by = "date")
+
+###finish join with miles 
+transit_data <- transit_data %>%
+  left_join(miles_and_stops, by = "route") %>%
+  # Normalize date formats and extract month
+  mutate(
+    # Parse the date using lubridate's mdy function, which handles multiple formats
+    date = mdy(date), 
+    # Extract month from the normalized date
+    month = month(date),
+    # Create the `season` variable
+    season = ifelse(month >= 11 | month <= 4, 1, 0))
+
+#create categorical variables
+
+
+######################################################
+#transit_data$route <- as.factor(transit_data$route)
+#transit_data$day <- as.factor(transit_data$day)
+
+#Omit missing values
+transit_data_clean<- na.omit(transit_data)
+```
+
 # Principle Components Analysis
+
+``` r
+#select Variables Miles,s tops, and stops apart for PCA
+pca_selected_vars <- transit_data_clean[, c("miles_roundtrip", "stops")]
+ 
+# Standardize the selected variables
+#pca_scaled_data <- scale(pca_selected_vars)
+
+# Perform PCA
+#pca_result <- prcomp(pca_scaled_data, center = TRUE, scale. = TRUE)
+
+
+
+##################
+# Standardize the data
+pca_data_scaled <- scale(pca_selected_vars)
+
+# Compute PCA on selected variables
+pcs <- prcomp(pca_data_scaled, center = TRUE, scale. = TRUE)
+
+# Summary of PCA
+summary(pcs)
+```
 
     ## Importance of components:
     ##                           PC1     PC2
@@ -95,13 +159,42 @@ miles_and_stops <- read.csv("route_milesandstops.csv")
     ## Proportion of Variance 0.9025 0.09746
     ## Cumulative Proportion  0.9025 1.00000
 
+``` r
+# Variance explained by each component
+var_explained <- summary(pcs)$importance[2,]
+
+# Plot variance explained
+ggplot(data.frame(PC = 1:length(var_explained), Variance = var_explained), aes(x = PC, y = Variance)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Variance Explained by Principal Components", x = "Principal Component", y = "Variance Explained")
+```
+
 ![](OTP-Analysis_files/figure-gfm/pca-1.png)<!-- -->
+
+``` r
+# PCA Loadings
+pcs$rotation
+```
 
     ##                       PC1        PC2
     ## miles_roundtrip 0.7071068  0.7071068
     ## stops           0.7071068 -0.7071068
 
+``` r
+# Cumulative proportion of variance to see which PC to keep
+cumulative_var <- cumsum(var_explained)
+ggplot(data.frame(PC = 1:length(cumulative_var), CumulativeVariance = cumulative_var), aes(x = PC, y = CumulativeVariance)) +
+  geom_line() +
+  labs(title = "Cumulative Variance Explained by Principal Components", x = "Principal Component", y = "Cumulative Variance")
+```
+
 ![](OTP-Analysis_files/figure-gfm/pca-2.png)<!-- -->
+
+``` r
+# Looking at PCA Scores
+scores <- pcs$x
+head(scores, 5)
+```
 
     ##          PC1        PC2
     ## 1 -0.2774899 -0.6134051
@@ -110,15 +203,58 @@ miles_and_stops <- read.csv("route_milesandstops.csv")
     ## 4 -0.3557549  0.5764949
     ## 5  2.0278193 -0.3794322
 
-![](OTP-Analysis_files/figure-gfm/pca-3.png)<!-- --> \# Summary
-Statistics with Latex Ouput
+``` r
+scores_df <- data.frame(scores)
+
+ggplot(scores_df, aes(x = PC1, y = PC2)) +
+  geom_point() +
+  labs(title = "Scatter Plot of PC1 vs. PC2", x = "Principal Component 1", y = "Principal Component 2") +
+  theme_minimal()
+```
+
+![](OTP-Analysis_files/figure-gfm/pca-3.png)<!-- -->
+
+``` r
+# Final touches
+transit_data_clean <- transit_data_clean %>%
+  # Add the first principal component
+  mutate(PC1 = pcs$x[, 1]) 
+```
+
+# Summary Statistics with Latex Ouput
+
+``` r
+# Compute summary statistics
+table <- describe(transit_data_clean)
+```
 
     ## Warning in FUN(newX[, i], ...): no non-missing arguments to min; returning Inf
 
     ## Warning in FUN(newX[, i], ...): no non-missing arguments to max; returning -Inf
 
+``` r
+# Convert the summary statistics to a data frame
+table_df <- as.data.frame(table)
+
+# Remove unnecessary columns and rename them
+table_df <- table_df[, c("mean", "sd", "median", "range", "skew", "kurtosis")]
+names(table_df) <- c("Mean", "SD", "Median", "Range", "Skew", "Kurtosis")
+
+# Add a column for variable names
+table_df$Variable <- rownames(table_df)
+
+# Reorder columns
+table_df <- table_df[, c("Variable", "Mean", "SD", "Median", "Range", "Skew", "Kurtosis")]
+
+# Generate LaTeX code
+latex_table <- xtable(table_df, caption = "Summary Statistics", label = "tab:summary_statistics")
+
+# Print LaTeX code
+print(latex_table, type = "latex", include.rownames = FALSE, booktabs = TRUE)
+```
+
     ## % latex table generated in R 4.4.2 by xtable 1.8-4 package
-    ## % Thu Feb 27 13:22:01 2025
+    ## % Thu Feb 27 14:29:39 2025
     ## \begin{table}[ht]
     ## \centering
     ## \begin{tabular}{lrrrrrr}
@@ -151,17 +287,99 @@ Statistics with Latex Ouput
     ## \end{table}
 
 OTP BAR CHARTS
-![](OTP-Analysis_files/figure-gfm/OTP%20BY%20DAY%20AND%20ROUTE-1.png)<!-- -->![](OTP-Analysis_files/figure-gfm/OTP%20BY%20DAY%20AND%20ROUTE-2.png)<!-- -->
+
+``` r
+# Assuming your data is stored in a dataframe called 'transit_data_clean'
+
+# Calculate OTP (On-Time Percentage) by day
+transit_data_clean <- transit_data_clean %>%
+  mutate(otp = (on_time / sum_processed) * 100)  # OTP as percentage
+
+# Aggregate OTP by day
+otp_by_day <- transit_data_clean %>%
+  group_by(day) %>%
+  summarize(mean_otp = mean(otp, na.rm = TRUE))
+
+# Plot OTP by Day
+ggplot(otp_by_day, aes(x = day, y = mean_otp)) +
+  geom_bar(stat = "identity", fill = "skyblue", color = "black") +
+  labs(title = "On-Time Performance by Day",
+       x = "Day of the Week",
+       y = "Average OTP (%)") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+![](OTP-Analysis_files/figure-gfm/OTP%20BY%20DAY%20AND%20ROUTE-1.png)<!-- -->
+
+``` r
+# Aggregate OTP by route
+otp_by_route <- transit_data_clean %>%
+  mutate(otp = (on_time / sum_processed) * 100) %>%
+  group_by(route) %>%
+  summarize(mean_otp = mean(otp, na.rm = TRUE)) %>%
+  ungroup() %>%
+  # Convert 'route' to a factor (if not already) and reorder by mean OTP in descending order
+  mutate(route = factor(route)) %>%
+  mutate(route = fct_reorder(route, mean_otp, .desc = TRUE))
+
+# Plot OTP by Route (ordered by descending OTP)
+ggplot(otp_by_route, aes(x = route, y = mean_otp)) +
+  geom_bar(stat = "identity", fill = "lightgreen", color = "black") +
+  labs(title = "On-Time Performance by Route",
+       x = "Route Number",
+       y = "Average OTP (%)") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+![](OTP-Analysis_files/figure-gfm/OTP%20BY%20DAY%20AND%20ROUTE-2.png)<!-- -->
 
 # Scatter Plot Materix TESTING
 
+``` r
+# Box plot for season vs on_time
+library(ggplot2)
+ggplot(transit_data_clean, aes(x = as.factor(season), y = on_time)) +
+  geom_boxplot() +
+  labs(title = "Boxplot of On-Time Performance by Season",
+       x = "Season",
+       y = "On-Time Performance") +
+  theme_minimal()
+```
+
 ![](OTP-Analysis_files/figure-gfm/scatterplot-1.png)<!-- -->
 
+``` r
+# Load necessary libraries
+library(corrplot)
+```
+
     ## corrplot 0.95 loaded
+
+``` r
+library(dplyr)
+
+# Subset the data to include the continuous variables and on_time
+continuous_vars_with_otp <- transit_data_clean %>%
+  select(avg_rain_inch, tmax, upt, accident_count, PC1, on_time)
+
+# Compute the correlation matrix
+cor_matrix_with_otp <- cor(continuous_vars_with_otp, use = "complete.obs")
+
+# Plot the correlation matrix
+corrplot(cor_matrix_with_otp, method = "circle", type = "upper", 
+         tl.col = "black", tl.srt = 45)
+```
 
 ![](OTP-Analysis_files/figure-gfm/scatterplot-2.png)<!-- -->
 
 # Explanatory Regression
+
+``` r
+model_fe <- feols(on_time ~ avg_rain_inch^2 + tmax + upt + accident_count + season | route, data = transit_data_clean)
+summary(model_fe)
+```
 
     ## OLS estimation, Dep. Var.: on_time
     ## Observations: 9,848
@@ -177,6 +395,11 @@ OTP BAR CHARTS
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## RMSE: 12.6     Adj. R2: 0.313204
     ##              Within R2: 0.054192
+
+``` r
+model_lm <- lm(on_time ~ avg_rain_inch^2 + tmax + upt + accident_count + route + season + PC1, data = transit_data_clean)
+summary(model_lm)
+```
 
     ## 
     ## Call:
