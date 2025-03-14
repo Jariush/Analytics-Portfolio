@@ -3,7 +3,7 @@
 
 Hello! My name is Jarius and I am a Master’s in Analytics graduate from Florida Gulf Coast University, with a bachelor’s degree in Economics. I have a deep passion for research and data analysis. Throughout my academic and professional journey, I have applied statistical techniques, modeling, data processing, and visualization to projects such as assessing diabetes risk factors and exploring the correlation between poverty and crime. 
 
-I also have experience as a data analyst intern at LeeTran. I leverage my skills in data analysis, predictive modeling, and geospatial analysis to optimize transit operations, improve reporting workflows, and support key transportation planning initiatives aimed at enhancing efficiency and performance.
+I also have experience as a data analyst at LeeTran. I leverage my skills in data analysis, predictive modeling, and geospatial analysis to optimize transit operations, improve reporting workflows, and support key transportation planning initiatives aimed at enhancing efficiency and performance.
 
 Below are some of the projects I have worked on!
 
